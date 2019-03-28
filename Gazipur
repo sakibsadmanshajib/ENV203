@@ -148,8 +148,8 @@ LRY = Lower right latitude
  //COMMENT OUT AT THE TIME OF IMAGE COLLECTION
   Map.addLayer(roi);
   
-  var image1991 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_19910126').clip(roi); 
-  Map.addLayer(image1991,visParamsRGB_L5,'1991');
+  // var image1991 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_19910126').clip(roi); 
+  // Map.addLayer(image1991,visParamsRGB_L5,'1991');
  
   var image2001 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_20010121').clip(roi); 
   Map.addLayer(image2001,visParamsRGB_L5,'2001');
