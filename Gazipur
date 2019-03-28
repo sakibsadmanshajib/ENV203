@@ -1,0 +1,5 @@
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
+    builtup = /* color: #98ff00 */ee.FeatureCollection([]),
+    nonbuiltup = /* color: #0b4a8b */ee.FeatureCollection([]);
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
