@@ -319,7 +319,7 @@ LRY = Lower right latitude
 };
 
 //Input: Latitude and Longitude (2 decimal places) of upper left and lower right corner 
-calculate('Saiful', 'Mymensingh',  24.79, 90.33, 24.70, 90.46);
+calculate('Saiful', 'Mymensingh',  24.03, 90.38, 23.94, 90.48);
 
 
 
