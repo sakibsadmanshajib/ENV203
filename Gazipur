@@ -42,7 +42,7 @@ LRY = Lower right latitude
   );
   
   // STEP 1 : START OF IMAGE COLLECTION
-  print('1991',unclipped_1991);
+  // print('1991',unclipped_1991);
   print('2001',unclipped_2001);
   print('2011',unclipped_2011);
   
