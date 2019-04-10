@@ -1,9 +1,9 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
-    nonbuiltup = /* color: #0b4a8b */ee.FeatureCollection([]),
-    builtup = /* color: #d63000 */ee.FeatureCollection([]);
+var nonbuiltup = /* color: #0b4a8b */ee.FeatureCollection([]),
+    builtup = /* color: #d63000 */ee.FeatureCollection([]),
+    images = ee.ImageCollection("LANDSAT/LE07/C01/T1");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
-
+var builtup = builtup2, nonbuiltup = nonbuiltup2;
 
 //Visual Parameters for RGB composite of Landsat 5
 var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
@@ -30,21 +30,21 @@ LRY = Lower right latitude
   //   // .sort('CLOUD_COVER')
   //   // .first()
   // );
-  var unclipped_2007 = ee.ImageCollection(unclipped
-    .filterDate('2007-01-01','2008-01-01')
+  var unclipped_2001 = ee.ImageCollection(unclipped
+    .filterDate('2001-01-01','2002-01-01')
     // .sort('CLOUD_COVER')
     // .first()
   );
-  var unclipped_2016 = ee.ImageCollection(unclipped
-    .filterDate('2016-01-01','2017-01-01')
+  var unclipped_2011 = ee.ImageCollection(unclipped
+    .filterDate('2011-01-01','2012-01-01')
     // .sort('CLOUD_COVER')
     // .first()
   );
   
   // STEP 1 : START OF IMAGE COLLECTION
   // print('1991',unclipped_1991);
-  print('2007',unclipped_2007);
-  print('2016',unclipped_2016);
+  print('2001',unclipped_2001);
+  print('2011',unclipped_2011);
   
  //COMMENT OUT AT THE TIME OF IMAGE COLLECTION
   Map.addLayer(roi);
@@ -52,12 +52,12 @@ LRY = Lower right latitude
   // var image1991 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_19910126').clip(roi); 
   // Map.addLayer(image1991,visParamsRGB_L5,'1991');
  
-  // var image2007 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_20010121').clip(roi); 
-  // Map.addLayer(image2007,visParamsRGB_L5,'2007');
+  var image2001 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_20010121').clip(roi); 
+  Map.addLayer(image2001,visParamsRGB_L5,'2001');
   
  
-  // var image2017 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_20110202').clip(roi); 
-  // Map.addLayer(image2017,visParamsRGB_L5,'2017');
+  var image2011 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_20110202').clip(roi); 
+  Map.addLayer(image2011,visParamsRGB_L5,'2011');
   
 /* 
   STEP 3 : TRAINING DATA
@@ -218,6 +218,7 @@ LRY = Lower right latitude
   // Map.addLayer(roi);
    // COMMENT TILL HERE
 };
+
 
 //Input: Latitude and Longitude (2 decimal places) of upper left and lower right corner 
 calculate('Sakib', 'Comilla Sadar Dakshin',  23.43, 91.11, 23.34, 91.30);
