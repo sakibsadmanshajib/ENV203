@@ -3,8 +3,6 @@ var nonbuiltup = /* color: #0b4a8b */ee.FeatureCollection([]),
     builtup = /* color: #d63000 */ee.FeatureCollection([]),
     images = ee.ImageCollection("LANDSAT/LE07/C01/T1");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
-var builtup = builtup2, nonbuiltup = nonbuiltup2;
-
 //Visual Parameters for RGB composite of Landsat 5
 var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
 
