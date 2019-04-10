@@ -1,8 +1,11 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var nonbuiltup = /* color: #0b4a8b */ee.FeatureCollection([]),
-    builtup = /* color: #d63000 */ee.FeatureCollection([]),
-    images = ee.ImageCollection("LANDSAT/LE07/C01/T1");
+var images = ee.ImageCollection("LANDSAT/LE07/C01/T1"),
+    builtup = /* color: #98ff00 */ee.FeatureCollection([]),
+    nonbuiltup = /* color: #0b4a8b */ee.FeatureCollection([]);
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
+
+
+
 //Visual Parameters for RGB composite of Landsat 5
 var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
 
@@ -54,7 +57,7 @@ LRY = Lower right latitude
   Map.addLayer(image2001,visParamsRGB_L5,'2001');
   
  
-  var image2011 = ee.Image('LANDSAT/LE07/C01/T1/LE07_136044_20110203').clip(roi); 
+  var image2011 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_20110202').clip(roi); 
   Map.addLayer(image2011,visParamsRGB_L5,'2011');
   
 /* 
@@ -217,9 +220,8 @@ LRY = Lower right latitude
    // COMMENT TILL HERE
 };
 
-
 //Input: Latitude and Longitude (2 decimal places) of upper left and lower right corner 
-calculate('Sakib', 'Comilla Sadar Dakshin',  23.43, 91.11, 23.34, 91.30);
+calculate('Sakib', 'Comilla Sadaar Dakshin',  23.43, 91.12, 23.37, 91.28);
 
 
 
