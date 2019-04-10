@@ -1,0 +1,420 @@
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
+    builtup = /* color: #98ff00 */ee.FeatureCollection(
+        [ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.38495515399154, 24.02114464513707],
+                  [90.38495515399154, 24.02067426019604],
+                  [90.38551305346664, 24.020595862538535],
+                  [90.3854701381224, 24.021105446457707]]]),
+            {
+              "system:index": "0"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.38701509051498, 24.018126311857078],
+                  [90.38705800585922, 24.017812714725668],
+                  [90.38761590533431, 24.01777351503047],
+                  [90.38761590533431, 24.018165511444725]]]),
+            {
+              "system:index": "1"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.3840110164183, 24.007541986024204],
+                  [90.3840110164183, 24.007149957229117],
+                  [90.38448308520492, 24.007149957229117],
+                  [90.38452600054916, 24.007541986024204]]]),
+            {
+              "system:index": "2"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.38246606402572, 24.01350067661285],
+                  [90.38285230212387, 24.01330467144497],
+                  [90.38302396350082, 24.013618279570185]]]),
+            {
+              "system:index": "3"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.40753178405498, 23.9965518794982],
+                  [90.40762834357952, 23.99611080935025],
+                  [90.40810041236614, 23.996189221931463],
+                  [90.40802531051372, 23.99660088719911]]]),
+            {
+              "system:index": "4"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.40828280257915, 23.99740461083164],
+                  [90.40831498908733, 23.99686552846159],
+                  [90.40892653274273, 23.996943940583026],
+                  [90.40885143089031, 23.99748302262463]]]),
+            {
+              "system:index": "5"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.40777854728435, 23.99769865480904],
+                  [90.40784292030071, 23.99733600047358],
+                  [90.40874414252971, 23.997326198990862],
+                  [90.40870122718547, 23.99761044168636],
+                  [90.4084544639561, 23.99760064022455],
+                  [90.4084008197758, 23.99777706642289]]]),
+            {
+              "system:index": "6"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.40772490310405, 23.997277191566123],
+                  [90.40774636077617, 23.997071360178445],
+                  [90.40827207374309, 23.99710076468256],
+                  [90.40817551421856, 23.99730659602322]]]),
+            {
+              "system:index": "7"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.4074995975468, 23.997551632904322],
+                  [90.40752105521892, 23.99729679453826],
+                  [90.40778927612041, 23.997326198990862],
+                  [90.40774636077617, 23.997581037298694]]]),
+            {
+              "system:index": "8"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.40744925044305, 23.996032580585826],
+                  [90.40751362345941, 23.99566992155592],
+                  [90.40816808245904, 23.99575813600859],
+                  [90.40808225177057, 23.996130596364445]]]),
+            {
+              "system:index": "9"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.40821099780328, 23.99626781832913],
+                  [90.40832901499994, 23.99569932638019],
+                  [90.4085757782293, 23.99576793761071],
+                  [90.40847921870477, 23.996316826138198]]]),
+            {
+              "system:index": "10"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.40743852160699, 23.995640516724922],
+                  [90.4075672676397, 23.994983807082484],
+                  [90.40801787875421, 23.99501321206351],
+                  [90.40798569224603, 23.995375872943708],
+                  [90.40816808245904, 23.995444484346642],
+                  [90.40811443827874, 23.995709127986792]]]),
+            {
+              "system:index": "11"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.40587775019208, 23.99460619202945],
+                  [90.40596358088055, 23.994253330698154],
+                  [90.40641419199505, 23.994263132414854],
+                  [90.406403463159, 23.99403769274175],
+                  [90.40689698961774, 23.994027891007867],
+                  [90.40695063379803, 23.994596390338852],
+                  [90.40656439569989, 23.99478262233235]]]),
+            {
+              "system:index": "12"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.40754071978131, 23.994870837393133],
+                  [90.40747634676495, 23.99460619202945],
+                  [90.4078625848631, 23.99460619202945],
+                  [90.40785185602704, 23.99489044073176]]]),
+            {
+              "system:index": "13"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.40978304651776, 23.995370721595556],
+                  [90.40985814837018, 23.99447876999362],
+                  [90.41009418276349, 23.99452777848387],
+                  [90.41002980974713, 23.9954197297462]]]),
+            {
+              "system:index": "14"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.40968648699322, 23.996595919763738],
+                  [90.40964357164899, 23.99620385761879],
+                  [90.41015855577984, 23.996184254480198],
+                  [90.4101692846159, 23.996355781841682],
+                  [90.41004590300122, 23.996390087286557],
+                  [90.41005663183728, 23.996507705885247],
+                  [90.41010491159955, 23.99652730897458],
+                  [90.41009954718152, 23.99661062207094],
+                  [90.40996007231274, 23.996649828215272],
+                  [90.40996007231274, 23.99670863740937],
+                  [90.40980450418988, 23.996703736644225],
+                  [90.409825961862, 23.99680665267317],
+                  [90.40967575815716, 23.996816454195447],
+                  [90.40963820723096, 23.99661062207094]]]),
+            {
+              "system:index": "15"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.40890328196087, 23.996017627681585],
+                  [90.40888182428876, 23.99557165489462],
+                  [90.40920368937054, 23.995576555702872],
+                  [90.40974013117352, 23.995679472633093],
+                  [90.4096650293211, 23.995988222930038]]]),
+            {
+              "system:index": "16"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.40968648699322, 23.99598332213746],
+                  [90.40971330908337, 23.99579219108131],
+                  [90.40978304651776, 23.99579219108131],
+                  [90.40980450418988, 23.995738282270565],
+                  [90.41012636927167, 23.99579709188115],
+                  [90.41045896318951, 23.995870603856627],
+                  [90.41043214109936, 23.996042131636095]]]),
+            {
+              "system:index": "17"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[90.41014246252576, 23.99576278627825],
+                  [90.4101692846159, 23.995654968609557],
+                  [90.41020683554211, 23.995664770219523],
+                  [90.41026584414044, 23.995556952468732],
+                  [90.41062526014844, 23.995566754086177],
+                  [90.41057698038617, 23.99589510783911],
+                  [90.41012636927167, 23.99579709188115]]]),
+            {
+              "system:index": "18"
+            })]),
+    nonbuiltup = /* color: #0b4a8b */ee.FeatureCollection([]);
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
+
+
+//Visual Parameters for RGB composite of Landsat 5
+var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
+
+//Visual Parameters for False Color composite for Landsat 5
+var visParamsFalse_L5 = {bands: ['B4', 'B3', 'B2'], max: 0.3};
+
+var calculate = function(name, areaname, ULY, ULX, LRY, LRX){
+/*
+ULX = Upper left longitude
+ULY = Upper left latitude
+LRX = Lower right longitude
+LRY = Lower right latitude
+
+*/
+  print("Hello, " + name +'.');
+  var roi = ee.Geometry.Polygon([
+    [[ULX,ULY], [LRX, ULY], [LRX,LRY], [ULX,LRY]]
+  ]);
+  Map.setCenter(ULX,ULY,11);
+  var unclipped = images.filterBounds(roi);
+  // var unclipped_1991 = ee.ImageCollection(unclipped
+  //   .filterDate('1991-01-01','1992-01-01')
+  //   // .sort('CLOUD_COVER')
+  //   // .first()
+  // );
+  var unclipped_2001 = ee.ImageCollection(unclipped
+    .filterDate('2001-01-01','2002-01-01')
+    // .sort('CLOUD_COVER')
+    // .first()
+  );
+  var unclipped_2011 = ee.ImageCollection(unclipped
+    .filterDate('2011-01-01','2012-01-01')
+    // .sort('CLOUD_COVER')
+    // .first()
+  );
+  
+  // STEP 1 : START OF IMAGE COLLECTION
+  // print('1991',unclipped_1991);
+  print('2001',unclipped_2001);
+  print('2011',unclipped_2011);
+  
+ //COMMENT OUT AT THE TIME OF IMAGE COLLECTION
+  Map.addLayer(roi);
+  
+  // var image1991 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_19910126').clip(roi); 
+  // Map.addLayer(image1991,visParamsRGB_L5,'1991');
+ 
+  var image2001 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_20010121').clip(roi); 
+  Map.addLayer(image2001,visParamsRGB_L5,'2001');
+  
+ 
+  var image2011 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_20110202').clip(roi); 
+  Map.addLayer(image2011,visParamsRGB_L5,'2011');
+  
+/* 
+  STEP 3 : TRAINING DATA
+  Do in only on 1991 image. Uncheck 2001 and 2011 images. Create FeatureCollection, add class label and class values
+
+*/
+
+  // // Use these bands for prediction.
+  // var bands = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7'];
+
+  // // Load a Landsat 8 image to be used for prediction.
+  // image1991 = image1991.select(bands);
+  // image2001 = image2001.select(bands);
+  // image2011 = image2011.select(bands);
+
+  // // Load training points. The numeric property 'class' stores known labels.
+  // var points = builtup.merge(nonbuiltup);
+
+  // // Overlay the points on the imagery to get training.
+  // var training1991 = image1991.sampleRegions({
+  //   collection: points,
+  //   properties: ['class'],
+  //   scale: 30
+  // });
+  // var training2001 = image2001.sampleRegions({
+  //   collection: points,
+  //   properties: ['class'],
+  //   scale: 30
+  // });
+  // var training2011 = image2011.sampleRegions({
+  //   collection: points,
+  //   properties: ['class'],
+  //   scale: 30
+  // });
+
+  // // Train a CART classifier with default parameters.
+  // var trained1991 = ee.Classifier.cart().train(training1991, 'class', bands);
+  // var trained2001 = ee.Classifier.cart().train(training2001, 'class', bands);
+  // var trained2011 = ee.Classifier.cart().train(training2011, 'class', bands);
+
+  // // Classify the image with the same bands used for training.
+  // var classified1991 = image1991.select(bands).classify(trained1991).clip(roi);
+  // var classified2001 = image2001.select(bands).classify(trained2001).clip(roi);
+  // var classified2011 = image2011.select(bands).classify(trained2011).clip(roi);
+
+  // // Display the inputs and the results.
+  // Map.addLayer(classified1991, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '1991 classification');
+  // Map.addLayer(classified2001, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '2001 classification');
+  // Map.addLayer(classified2011, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '2011 classification');
+
+
+
+  // var area = ee.Image.pixelArea();
+
+  // //1991 Built up area
+  // var builtup_classfication = classified1991.select('classification').eq(0);
+  // builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
+  // var builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
+  // var stats_builtup = builtup_classfication_area.reduceRegion({
+  //     reducer: ee.Reducer.sum(), 
+  //     geometry: roi, 
+  //     scale: 30,
+  //   });
+  // var builtup1991_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
+  // print('1991 Built up Area', builtup1991_areaKm);
+
+  // //1991 Non Built up area
+  // var nonbuiltup_classfication = classified1991.select('classification').eq(1);
+  // nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
+  // var nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
+  // var stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
+  //     reducer: ee.Reducer.sum(), 
+  //     geometry: roi, 
+  //     scale: 30,
+  //   });
+  // var nonbuiltup1991_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
+  // print('1991 Non Built up Area', nonbuiltup1991_areaKm);
+
+  // var areaKm = ee.Number(0);
+  // print('1991 Total Area: ', areaKm.add(builtup1991_areaKm).add(nonbuiltup1991_areaKm));  
+
+  // //2001 Built up area
+  // builtup_classfication = classified2001.select('classification').eq(0);
+  // builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
+  // builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
+  // stats_builtup = builtup_classfication_area.reduceRegion({
+  //     reducer: ee.Reducer.sum(), 
+  //     geometry: roi, 
+  //     scale: 30,
+  //   });
+  // var builtup2001_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
+  // print('2001 Built up Area', builtup2001_areaKm);
+
+  // //2001 Non Built up area
+  // nonbuiltup_classfication = classified2001.select('classification').eq(1);
+  // nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
+  // nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
+  // stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
+  //     reducer: ee.Reducer.sum(), 
+  //     geometry: roi, 
+  //     scale: 30,
+  //   });
+  // var nonbuiltup2001_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
+  // print('2001 Non Built up Area', nonbuiltup2001_areaKm);
+
+  // areaKm = ee.Number(0);
+  // print('2001 Total Area: ', areaKm.add(builtup2001_areaKm).add(nonbuiltup2001_areaKm)); 
+  
+  // //2011 Built up area
+  // builtup_classfication = classified2011.select('classification').eq(0);
+  // builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
+  // builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
+  // stats_builtup = builtup_classfication_area.reduceRegion({
+  //     reducer: ee.Reducer.sum(), 
+  //     geometry: roi, 
+  //     scale: 30,
+  //   });
+  // var builtup2011_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
+  // print('2011 Built up Area', builtup2011_areaKm);
+
+  // //2011 Non Built up area
+  // nonbuiltup_classfication = classified2011.select('classification').eq(1);
+  // nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
+  // nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
+  // stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
+  //     reducer: ee.Reducer.sum(), 
+  //     geometry: roi, 
+  //     scale: 30,
+  //   });
+  // var nonbuiltup2011_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
+  // print('2011 Non Built up Area', nonbuiltup2011_areaKm);
+
+  // areaKm = ee.Number(0);
+  // print('2011 Total Area: ', areaKm.add(builtup2011_areaKm).add(nonbuiltup2011_areaKm)); 
+  
+  // // Create a task that you can launch from the Tasks tab.
+  // Export.image.toDrive({
+  //   image: classified1991,
+  //   description: 'classified1991',
+  //   scale: 30,
+  //   region: roi
+  // });
+  
+  // Export.image.toDrive({
+  //   image: classified2001,
+  //   description: 'classified2001',
+  //   scale: 30,
+  //   region: roi
+  // });
+
+  // Export.image.toDrive({
+  //   image: classified2011,
+  //   description: 'classified2011',
+  //   scale: 30,
+  //   region: roi
+  // });
+
+  // Map.addLayer(roi);
+   // COMMENT TILL HERE
+};
+
+//Input: Latitude and Longitude (2 decimal places) of upper left and lower right corner 
+calculate('Sakib', 'Gazipur',  24.03, 90.37, 23.94, 90.47);
+
+
+
