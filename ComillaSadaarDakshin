@@ -323,10 +323,8 @@ var builtup = /* color: #98ff00 */ee.FeatureCollection(
             })]);
 
 //Visual Parameters for RGB composite of Landsat 5
-// var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
+var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
 
-//Visual Parameters for RGB composite of Landsat 7
-var trueColor321 = {bands: ['B3', 'B2', 'B1']};
 
 //Visual Parameters for False Color composite for Landsat 5
 var visParamsFalse_L5 = {bands: ['B4', 'B3', 'B2'], max: 0.3};
@@ -345,6 +343,7 @@ LRY = Lower right latitude
   ]);
   Map.setCenter(ULX,ULY,11);
   var unclipped = images.filterBounds(roi);
+  
   // var unclipped_1991 = ee.ImageCollection(unclipped
   //   .filterDate('1991-01-01','1992-01-01')
   //   // .sort('CLOUD_COVER')
