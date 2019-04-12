@@ -7,7 +7,10 @@ var images = ee.ImageCollection("LANDSAT/LE07/C01/T1"),
 
 
 //Visual Parameters for RGB composite of Landsat 5
-var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
+// var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
+
+//Visual Parameters for RGB composite of Landsat 7
+var trueColor321 = {bands: ['B3', 'B2', 'B1']};
 
 //Visual Parameters for False Color composite for Landsat 5
 var visParamsFalse_L5 = {bands: ['B4', 'B3', 'B2'], max: 0.3};
@@ -54,11 +57,12 @@ LRY = Lower right latitude
   // Map.addLayer(image1991,visParamsRGB_L5,'1991');
  
   var image2001 = ee.Image('LANDSAT/LE07/C01/T1/LE07_136044_20010207').clip(roi); 
-  Map.addLayer(image2001,visParamsRGB_L5,'2001');
-  
+  // Map.addLayer(image2001,visParamsRGB_L5,'2001');
+  Map.addLayer(image2001,trueColor321,'2001');
  
   var image2011 = ee.Image('LANDSAT/LE07/C01/T1/LE07_136044_20110203').clip(roi); 
-  Map.addLayer(image2011,visParamsRGB_L5,'2011');
+  // Map.addLayer(image2011,visParamsRGB_L5,'2011');
+  Map.addLayer(image2011,trueColor321,'2011');
   
 /* 
   STEP 3 : TRAINING DATA
