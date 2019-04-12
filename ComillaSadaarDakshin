@@ -465,10 +465,10 @@ LRY = Lower right latitude
   // print('1991 Total Area: ', areaKm.add(builtup1991_areaKm).add(nonbuiltup1991_areaKm));  
 
   //2001 Built up area
-  builtup_classfication = classified2001.select('classification').eq(0);
+  var builtup_classfication = classified2001.select('classification').eq(0);
   builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
-  builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
-  stats_builtup = builtup_classfication_area.reduceRegion({
+  var builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
+  var stats_builtup = builtup_classfication_area.reduceRegion({
       reducer: ee.Reducer.sum(), 
       geometry: roi, 
       scale: 30,
