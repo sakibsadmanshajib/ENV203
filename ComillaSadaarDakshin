@@ -1,4 +1,4 @@
-/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
 var builtup = /* color: #98ff00 */ee.FeatureCollection(
         [ee.Feature(
             ee.Geometry.Polygon(
@@ -321,8 +321,6 @@ var builtup = /* color: #98ff00 */ee.FeatureCollection(
             {
               "system:index": "6"
             })]);
-/***** End of imports. If edited, may not auto-convert in the playground. *****/
-var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
 
 //Visual Parameters for RGB composite of Landsat 5
 // var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
