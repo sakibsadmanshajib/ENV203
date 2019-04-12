@@ -1,6 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var images = ee.ImageCollection("LANDSAT/LE07/C01/T1"),
-    builtup = /* color: #98ff00 */ee.FeatureCollection(
+var builtup = /* color: #98ff00 */ee.FeatureCollection(
         [ee.Feature(
             ee.Geometry.Polygon(
                 [[[91.17185503513679, 23.418904033731536],
@@ -323,8 +322,7 @@ var images = ee.ImageCollection("LANDSAT/LE07/C01/T1"),
               "system:index": "6"
             })]);
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
-
-
+var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
 
 //Visual Parameters for RGB composite of Landsat 5
 // var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
