@@ -1,12 +1,11 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA");
+var images = ee.ImageCollection("LANDSAT/LE07/C01/T1_RT");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
-//Visual Parameters for RGB composite of Landsat 5
-var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
-
+//Visual Parameters for RGB composite of Landsat 7
+var visParamsRGB_L7 = {bands: ['B3', 'B2', 'B1']};
 
 //Visual Parameters for False Color composite for Landsat 5
-var visParamsFalse_L5 = {bands: ['B4', 'B3', 'B2'], max: 0.3};
+// var visParamsFalse_L5 = {bands: ['B4', 'B3', 'B2'], max: 0.3};
 
 var calculate = function(name, areaname, ULY, ULX, LRY, LRX){
 /*
@@ -50,10 +49,10 @@ LRY = Lower right latitude
   // var image1991 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_19910126').clip(roi); 
   // Map.addLayer(image1991,visParamsRGB_L5,'1991');
  
-  var image2001 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_138043_20010112').clip(roi); 
+  var image2001 = ee.Image('LANDSAT/LE07/C01/T1_RT/LE07_138043_20011120').clip(roi); 
   Map.addLayer(image2001,visParamsRGB_L5,'2001');
  
-  var image2011 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_138043_20110124').clip(roi); 
+  var image2011 = ee.Image('LANDSAT/LE07/C01/T1_RT/LE07_138043_20110201').clip(roi); 
   Map.addLayer(image2011,visParamsRGB_L5,'2011');
   
 /* 
