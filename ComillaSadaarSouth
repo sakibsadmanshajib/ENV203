@@ -886,7 +886,7 @@ LRY = Lower right latitude
     region: roi
   });
 
-  Map.addLayer(roi);
+  // Map.addLayer(roi);
   // COMMENT TILL HERE
 };
 
