@@ -459,10 +459,10 @@ LRY = Lower right latitude
   print('1991 Total Area: ', areaKm.add(builtup1991_areaKm).add(nonbuiltup1991_areaKm));  
 
   //2001 Built up area
-  var builtup_classfication = classified2001.select('classification').eq(0);
+  builtup_classfication = classified2001.select('classification').eq(0);
   builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
-  var builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
-  var stats_builtup = builtup_classfication_area.reduceRegion({
+  builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
+  stats_builtup = builtup_classfication_area.reduceRegion({
       reducer: ee.Reducer.sum(), 
       geometry: roi, 
       scale: 30,
@@ -471,10 +471,10 @@ LRY = Lower right latitude
   print('2001 Built up Area', builtup2001_areaKm);
 
   //2001 Non Built up area
-  var nonbuiltup_classfication = classified2001.select('classification').eq(1);
+  nonbuiltup_classfication = classified2001.select('classification').eq(1);
   nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
-  var nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
-  var stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
+  nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
+  stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
       reducer: ee.Reducer.sum(), 
       geometry: roi, 
       scale: 30,
@@ -509,7 +509,7 @@ LRY = Lower right latitude
   var nonbuiltup2011_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
   print('2011 Non Built up Area', nonbuiltup2011_areaKm);
 
-  var areaKm = ee.Number(0);
+  areaKm = ee.Number(0);
   print('2011 Total Area: ', areaKm.add(builtup2011_areaKm).add(nonbuiltup2011_areaKm)); 
   
   // Create a task that you can launch from the Tasks tab.
