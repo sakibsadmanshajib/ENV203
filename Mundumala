@@ -1,3 +1,6 @@
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA");
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
 //Visual Parameters for RGB composite of Landsat 5
 var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
 
@@ -59,55 +62,82 @@ LRY = Lower right latitude
 
 */
 
-  // Use these bands for prediction.
-  var bands = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7'];
+  // // Use these bands for prediction.
+  // var bands = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7'];
 
-  // Load a Landsat 8 image to be used for prediction.
-  // image1991 = image1991.select(bands);
-  image2001 = image2001.select(bands);
-  image2011 = image2011.select(bands);
+  // // Load a Landsat 8 image to be used for prediction.
+  // // image1991 = image1991.select(bands);
+  // image2001 = image2001.select(bands);
+  // image2011 = image2011.select(bands);
 
-  // Load training points. The numeric property 'class' stores known labels.
-  var points = builtup.merge(nonbuiltup);
+  // // Load training points. The numeric property 'class' stores known labels.
+  // var points = builtup.merge(nonbuiltup);
 
-  // Overlay the points on the imagery to get training.
-  // var training1991 = image1991.sampleRegions({
+  // // Overlay the points on the imagery to get training.
+  // // var training1991 = image1991.sampleRegions({
+  // //   collection: points,
+  // //   properties: ['class'],
+  // //   scale: 30
+  // // });
+  // var training2001 = image2001.sampleRegions({
   //   collection: points,
   //   properties: ['class'],
   //   scale: 30
   // });
-  var training2001 = image2001.sampleRegions({
-    collection: points,
-    properties: ['class'],
-    scale: 30
-  });
-  var training2011 = image2011.sampleRegions({
-    collection: points,
-    properties: ['class'],
-    scale: 30
-  });
+  // var training2011 = image2011.sampleRegions({
+  //   collection: points,
+  //   properties: ['class'],
+  //   scale: 30
+  // });
 
-  // Train a CART classifier with default parameters.
-  // var trained1991 = ee.Classifier.cart().train(training1991, 'class', bands);
-  var trained2001 = ee.Classifier.cart().train(training2001, 'class', bands);
-  var trained2011 = ee.Classifier.cart().train(training2011, 'class', bands);
+  // // Train a CART classifier with default parameters.
+  // // var trained1991 = ee.Classifier.cart().train(training1991, 'class', bands);
+  // var trained2001 = ee.Classifier.cart().train(training2001, 'class', bands);
+  // var trained2011 = ee.Classifier.cart().train(training2011, 'class', bands);
 
-  // Classify the image with the same bands used for training.
-  // var classified1991 = image1991.select(bands).classify(trained1991).clip(roi);
-  var classified2001 = image2001.select(bands).classify(trained2001).clip(roi);
-  var classified2011 = image2011.select(bands).classify(trained2011).clip(roi);
+  // // Classify the image with the same bands used for training.
+  // // var classified1991 = image1991.select(bands).classify(trained1991).clip(roi);
+  // var classified2001 = image2001.select(bands).classify(trained2001).clip(roi);
+  // var classified2011 = image2011.select(bands).classify(trained2011).clip(roi);
 
-  // Display the inputs and the results.
-  // Map.addLayer(classified1991, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '1991 classification');
-  Map.addLayer(classified2001, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '2001 classification');
-  Map.addLayer(classified2011, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '2011 classification');
+  // // Display the inputs and the results.
+  // // Map.addLayer(classified1991, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '1991 classification');
+  // Map.addLayer(classified2001, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '2001 classification');
+  // Map.addLayer(classified2011, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '2011 classification');
 
 
 
-  var area = ee.Image.pixelArea();
+  // var area = ee.Image.pixelArea();
 
-  // //1991 Built up area
-  // var builtup_classfication = classified1991.select('classification').eq(0);
+  // // //1991 Built up area
+  // // var builtup_classfication = classified1991.select('classification').eq(0);
+  // // builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
+  // // var builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
+  // // var stats_builtup = builtup_classfication_area.reduceRegion({
+  // //     reducer: ee.Reducer.sum(), 
+  // //     geometry: roi, 
+  // //     scale: 30,
+  // //   });
+  // // var builtup1991_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
+  // // print('1991 Built up Area', builtup1991_areaKm);
+
+  // // //1991 Non Built up area
+  // // var nonbuiltup_classfication = classified1991.select('classification').eq(1);
+  // // nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
+  // // var nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
+  // // var stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
+  // //     reducer: ee.Reducer.sum(), 
+  // //     geometry: roi, 
+  // //     scale: 30,
+  // //   });
+  // // var nonbuiltup1991_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
+  // // print('1991 Non Built up Area', nonbuiltup1991_areaKm);
+
+  // // var areaKm = ee.Number(0);
+  // // print('1991 Total Area: ', areaKm.add(builtup1991_areaKm).add(nonbuiltup1991_areaKm));  
+
+  // //2001 Built up area
+  // var builtup_classfication = classified2001.select('classification').eq(0);
   // builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
   // var builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
   // var stats_builtup = builtup_classfication_area.reduceRegion({
@@ -115,11 +145,11 @@ LRY = Lower right latitude
   //     geometry: roi, 
   //     scale: 30,
   //   });
-  // var builtup1991_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
-  // print('1991 Built up Area', builtup1991_areaKm);
+  // var builtup2001_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
+  // print('2001 Built up Area', builtup2001_areaKm);
 
-  // //1991 Non Built up area
-  // var nonbuiltup_classfication = classified1991.select('classification').eq(1);
+  // //2001 Non Built up area
+  // var nonbuiltup_classfication = classified2001.select('classification').eq(1);
   // nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
   // var nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
   // var stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
@@ -127,91 +157,64 @@ LRY = Lower right latitude
   //     geometry: roi, 
   //     scale: 30,
   //   });
-  // var nonbuiltup1991_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
-  // print('1991 Non Built up Area', nonbuiltup1991_areaKm);
+  // var nonbuiltup2001_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
+  // print('2001 Non Built up Area', nonbuiltup2001_areaKm);
 
   // var areaKm = ee.Number(0);
-  // print('1991 Total Area: ', areaKm.add(builtup1991_areaKm).add(nonbuiltup1991_areaKm));  
-
-  //2001 Built up area
-  var builtup_classfication = classified2001.select('classification').eq(0);
-  builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
-  var builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
-  var stats_builtup = builtup_classfication_area.reduceRegion({
-      reducer: ee.Reducer.sum(), 
-      geometry: roi, 
-      scale: 30,
-    });
-  var builtup2001_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
-  print('2001 Built up Area', builtup2001_areaKm);
-
-  //2001 Non Built up area
-  var nonbuiltup_classfication = classified2001.select('classification').eq(1);
-  nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
-  var nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
-  var stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
-      reducer: ee.Reducer.sum(), 
-      geometry: roi, 
-      scale: 30,
-    });
-  var nonbuiltup2001_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
-  print('2001 Non Built up Area', nonbuiltup2001_areaKm);
-
-  var areaKm = ee.Number(0);
-  print('2001 Total Area: ', areaKm.add(builtup2001_areaKm).add(nonbuiltup2001_areaKm)); 
+  // print('2001 Total Area: ', areaKm.add(builtup2001_areaKm).add(nonbuiltup2001_areaKm)); 
   
-  //2011 Built up area
-  builtup_classfication = classified2011.select('classification').eq(0);
-  builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
-  builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
-  stats_builtup = builtup_classfication_area.reduceRegion({
-      reducer: ee.Reducer.sum(), 
-      geometry: roi, 
-      scale: 30,
-    });
-  var builtup2011_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
-  print('2011 Built up Area', builtup2011_areaKm);
+  // //2011 Built up area
+  // builtup_classfication = classified2011.select('classification').eq(0);
+  // builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
+  // builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
+  // stats_builtup = builtup_classfication_area.reduceRegion({
+  //     reducer: ee.Reducer.sum(), 
+  //     geometry: roi, 
+  //     scale: 30,
+  //   });
+  // var builtup2011_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
+  // print('2011 Built up Area', builtup2011_areaKm);
 
-  //2011 Non Built up area
-  nonbuiltup_classfication = classified2011.select('classification').eq(1);
-  nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
-  nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
-  stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
-      reducer: ee.Reducer.sum(), 
-      geometry: roi, 
-      scale: 30,
-    });
-  var nonbuiltup2011_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
-  print('2011 Non Built up Area', nonbuiltup2011_areaKm);
+  // //2011 Non Built up area
+  // nonbuiltup_classfication = classified2011.select('classification').eq(1);
+  // nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
+  // nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
+  // stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
+  //     reducer: ee.Reducer.sum(), 
+  //     geometry: roi, 
+  //     scale: 30,
+  //   });
+  // var nonbuiltup2011_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
+  // print('2011 Non Built up Area', nonbuiltup2011_areaKm);
 
-  areaKm = ee.Number(0);
-  print('2011 Total Area: ', areaKm.add(builtup2011_areaKm).add(nonbuiltup2011_areaKm)); 
+  // areaKm = ee.Number(0);
+  // print('2011 Total Area: ', areaKm.add(builtup2011_areaKm).add(nonbuiltup2011_areaKm)); 
   
-  // Create a task that you can launch from the Tasks tab.
+  // // Create a task that you can launch from the Tasks tab.
+  // // Export.image.toDrive({
+  // //   image: classified1991,
+  // //   description: 'classified1991',
+  // //   scale: 30,
+  // //   region: roi
+  // // });
+  
   // Export.image.toDrive({
-  //   image: classified1991,
-  //   description: 'classified1991',
+  //   image: classified2001,
+  //   description: 'classified2001',
   //   scale: 30,
   //   region: roi
   // });
-  
-  Export.image.toDrive({
-    image: classified2001,
-    description: 'classified2001',
-    scale: 30,
-    region: roi
-  });
 
-  Export.image.toDrive({
-    image: classified2011,
-    description: 'classified2011',
-    scale: 30,
-    region: roi
-  });
+  // Export.image.toDrive({
+  //   image: classified2011,
+  //   description: 'classified2011',
+  //   scale: 30,
+  //   region: roi
+  // });
 
-  // Map.addLayer(roi);
+  // // Map.addLayer(roi);
   // COMMENT TILL HERE
 };
 
 //Input: Latitude and Longitude (2 decimal places) of upper left and lower right corner 
-calculate('Sakib', 'Mundumala (Tanore)',  23.43, 91.12, 23.37, 91.28);
+calculate('Sakib', 'Mundumala',  24.61, 88.46, 24.60, 88.48);
