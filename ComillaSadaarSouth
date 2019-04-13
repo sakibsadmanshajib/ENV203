@@ -1,6 +1,6 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
-    builtup = /* color: #98ff00 */ee.FeatureCollection(
+    builtup = /* color: #ff0000 */ee.FeatureCollection(
         [ee.Feature(
             ee.Geometry.Polygon(
                 [[[91.17185503513679, 23.418904033731536],
@@ -8,6 +8,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17204815418586, 23.418707132934127],
                   [91.17201596767768, 23.418913878763707]]]),
             {
+              "class": 0,
               "system:index": "0"
             }),
         ee.Feature(
@@ -17,6 +18,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17228418857917, 23.41842162625731],
                   [91.17218762905463, 23.418549612085187]]]),
             {
+              "class": 0,
               "system:index": "1"
             }),
         ee.Feature(
@@ -26,6 +28,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17235929043159, 23.418106583691905],
                   [91.17232710392341, 23.418254259987847]]]),
             {
+              "class": 0,
               "system:index": "2"
             }),
         ee.Feature(
@@ -37,6 +40,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.1730995801197, 23.41786045616564],
                   [91.17313176662788, 23.41777185014408]]]),
             {
+              "class": 0,
               "system:index": "3"
             }),
         ee.Feature(
@@ -47,6 +51,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17381841213569, 23.418805583369465],
                   [91.17378622562751, 23.41889418869863]]]),
             {
+              "class": 0,
               "system:index": "4"
             }),
         ee.Feature(
@@ -57,6 +62,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17415100605353, 23.418520076905118],
                   [91.17407590420112, 23.418815428408976]]]),
             {
+              "class": 0,
               "system:index": "5"
             }),
         ee.Feature(
@@ -67,6 +73,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17464453251227, 23.418638217585794],
                   [91.17460161716804, 23.41892372379516]]]),
             {
+              "class": 0,
               "system:index": "6"
             }),
         ee.Feature(
@@ -75,6 +82,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17458015949592, 23.41855945714374],
                   [91.1740008023487, 23.418470851590374]]]),
             {
+              "class": 0,
               "system:index": "7"
             }),
         ee.Feature(
@@ -84,6 +92,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.1725953248249, 23.418638217585794],
                   [91.17284208805427, 23.419022174069294]]]),
             {
+              "class": 0,
               "system:index": "8"
             }),
         ee.Feature(
@@ -93,6 +102,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17731601269111, 23.416491978768644],
                   [91.17277771503791, 23.419002484020343]]]),
             {
+              "class": 0,
               "system:index": "9"
             }),
         ee.Feature(
@@ -102,6 +112,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17270261318549, 23.418628372533103],
                   [91.17298156292304, 23.41898279396843]]]),
             {
+              "class": 0,
               "system:index": "10"
             }),
         ee.Feature(
@@ -112,6 +123,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.16855055363044, 23.42139480351443],
                   [91.1678960946308, 23.42164092446447]]]),
             {
+              "class": 0,
               "system:index": "11"
             }),
         ee.Feature(
@@ -126,6 +138,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.16995603115424, 23.4214834071092],
                   [91.16977364094123, 23.421522786465598]]]),
             {
+              "class": 0,
               "system:index": "12"
             }),
         ee.Feature(
@@ -135,6 +148,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17274644365716, 23.416732649423743],
                   [91.17249968042779, 23.417864841905033]]]),
             {
+              "class": 0,
               "system:index": "13"
             }),
         ee.Feature(
@@ -144,6 +158,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.1707186936419, 23.418426011978088],
                   [91.17079379549432, 23.41876074387064]]]),
             {
+              "class": 0,
               "system:index": "14"
             }),
         ee.Feature(
@@ -156,6 +171,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17121222010064, 23.418829659155147],
                   [91.17113711824823, 23.418947799559326]]]),
             {
+              "class": 0,
               "system:index": "15"
             }),
         ee.Feature(
@@ -165,6 +181,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17311122408319, 23.41727413399326],
                   [91.1732936142962, 23.418376786628333]]]),
             {
+              "class": 0,
               "system:index": "16"
             }),
         ee.Feature(
@@ -185,9 +202,10 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17182376375604, 23.42040485586892],
                   [91.17179157724786, 23.420168577557675]]]),
             {
+              "class": 0,
               "system:index": "17"
             })]),
-    nonbuiltup = /* color: #0b4a8b */ee.FeatureCollection(
+    nonbuiltup = /* color: #078b23 */ee.FeatureCollection(
         [ee.Feature(
             ee.Geometry.Polygon(
                 [[[91.16742402584418, 23.420203571643825],
@@ -204,6 +222,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.16793922260172, 23.419888728432078],
                   [91.16799286678201, 23.419997022939583]]]),
             {
+              "class": 1,
               "system:index": "0"
             }),
         ee.Feature(
@@ -213,6 +232,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.16745020941414, 23.41826430018057],
                   [91.1674609382502, 23.41880577848086]]]),
             {
+              "class": 1,
               "system:index": "1"
             }),
         ee.Feature(
@@ -267,6 +287,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.1681207528502, 23.420062562672065],
                   [91.16738046316209, 23.42039729042338]]]),
             {
+              "class": 1,
               "system:index": "2"
             }),
         ee.Feature(
@@ -282,6 +303,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.16490026103816, 23.416695779722346],
                   [91.1656298218902, 23.420515660962383]]]),
             {
+              "class": 1,
               "system:index": "3"
             }),
         ee.Feature(
@@ -292,6 +314,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.16455693828425, 23.40625945946803],
                   [91.1649431763824, 23.409488899332487]]]),
             {
+              "class": 1,
               "system:index": "4"
             }),
         ee.Feature(
@@ -308,6 +331,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.17678781139216, 23.406270680335965],
                   [91.17893357860407, 23.411351104652113]]]),
             {
+              "class": 1,
               "system:index": "5"
             }),
         ee.Feature(
@@ -320,6 +344,7 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
                   [91.18218421569475, 23.412451027557804],
                   [91.1793303453029, 23.412342726873337]]]),
             {
+              "class": 1,
               "system:index": "6"
             })]);
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
@@ -367,7 +392,7 @@ LRY = Lower right latitude
   print('2011',unclipped_2011);
   
  //COMMENT OUT AT THE TIME OF IMAGE COLLECTION
-  // Map.addLayer(roi);
+  Map.addLayer(roi);
   
   // var image1991 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_19910126').clip(roi); 
   // Map.addLayer(image1991,visParamsRGB_L5,'1991');
@@ -535,7 +560,7 @@ LRY = Lower right latitude
   });
 
   Map.addLayer(roi);
-   // COMMENT TILL HERE
+  // COMMENT TILL HERE
 };
 
 //Input: Latitude and Longitude (2 decimal places) of upper left and lower right corner 
