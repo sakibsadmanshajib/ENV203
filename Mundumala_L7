@@ -62,7 +62,7 @@ LRY = Lower right latitude
 */
 
   // Use these bands for prediction.
-  var bands = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7'];
+  var bands = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6_VCID_1', 'B6_VCID_2', 'B7', 'B8'];
 
   // Load a Landsat 8 image to be used for prediction.
   // image1991 = image1991.select(bands);
