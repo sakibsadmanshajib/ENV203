@@ -513,12 +513,12 @@ LRY = Lower right latitude
   print('2011 Total Area: ', areaKm.add(builtup2011_areaKm).add(nonbuiltup2011_areaKm)); 
   
   // Create a task that you can launch from the Tasks tab.
-  Export.image.toDrive({
-    image: classified1991,
-    description: 'classified1991',
-    scale: 30,
-    region: roi
-  });
+  // Export.image.toDrive({
+  //   image: classified1991,
+  //   description: 'classified1991',
+  //   scale: 30,
+  //   region: roi
+  // });
   
   Export.image.toDrive({
     image: classified2001,
