@@ -1,5 +1,309 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var images = ee.ImageCollection("LANDSAT/LE07/C01/T1_RT");
+var images = ee.ImageCollection("LANDSAT/LE07/C01/T1_RT"),
+    builtup = /* color: #d63000 */ee.FeatureCollection(
+        [ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.46974443393822, 24.607498686663668],
+                  [88.46940111118431, 24.60693292667265],
+                  [88.47047399479027, 24.60595747240386],
+                  [88.47109626728172, 24.605508760886305],
+                  [88.47025941806908, 24.604669861123664],
+                  [88.47071002918358, 24.604240654418863],
+                  [88.47171853977318, 24.604864954593662],
+                  [88.47223352390404, 24.604026050514346],
+                  [88.47255538898582, 24.60373340823315],
+                  [88.47332786518211, 24.604474767349455],
+                  [88.47234081226463, 24.605450233178416],
+                  [88.47433637577171, 24.606640291190615],
+                  [88.47369264560814, 24.607206052504996],
+                  [88.47266267734642, 24.606250109483092],
+                  [88.47195457416649, 24.606757345465564],
+                  [88.47126792865868, 24.606386673219134]]]),
+            {
+              "class": 0,
+              "system:index": "0"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47238372760887, 24.60835707624681],
+                  [88.47196530335975, 24.60782058205115],
+                  [88.4725339313137, 24.60716703456547],
+                  [88.47334932285423, 24.607713284611645]]]),
+            {
+              "class": 0,
+              "system:index": "1"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47847330327681, 24.60268401639993],
+                  [88.47774374242476, 24.60276205506296],
+                  [88.477786657769, 24.602196273653174],
+                  [88.47840893026046, 24.60205970534339]]]),
+            {
+              "class": 0,
+              "system:index": "2"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47471821065596, 24.60715165148994],
+                  [88.47501861806563, 24.606800489443284],
+                  [88.47546922918013, 24.607229687366445],
+                  [88.47504007573775, 24.607561339298567]]]),
+            {
+              "class": 0,
+              "system:index": "3"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.46848611502605, 24.606156689797697],
+                  [88.46857194571453, 24.60566896058786],
+                  [88.46923713355022, 24.605786015771635],
+                  [88.46925859122234, 24.6050836830263],
+                  [88.47020272879558, 24.60518122947669],
+                  [88.47026710181194, 24.606078653251895],
+                  [88.46930150656658, 24.606429817324663]]]),
+            {
+              "class": 0,
+              "system:index": "4"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47005252509075, 24.607853972626145],
+                  [88.46992377905804, 24.607327232143636],
+                  [88.4708893743034, 24.606761471377247],
+                  [88.47166185049969, 24.60672245329905],
+                  [88.47226266531902, 24.607249196327967],
+                  [88.47149018912273, 24.607834463758948]]]),
+            {
+              "class": 0,
+              "system:index": "5"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47400073676067, 24.60890744693755],
+                  [88.47355012564617, 24.60816611408774],
+                  [88.47477321295696, 24.607678392711737],
+                  [88.47518090872722, 24.608049061130913],
+                  [88.47475175528484, 24.608712359771435]]]),
+            {
+              "class": 0,
+              "system:index": "6"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47305675634016, 24.60520790810877],
+                  [88.4733357060777, 24.603900779633893],
+                  [88.47458025106062, 24.603861760663563],
+                  [88.47496648915876, 24.605129870971183],
+                  [88.4744515050279, 24.605871221813057],
+                  [88.47378631719221, 24.604876249937874]]]),
+            {
+              "class": 0,
+              "system:index": "7"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.46187730916608, 24.60592974932401],
+                  [88.46359392293562, 24.60548103770702],
+                  [88.46310039647688, 24.605129870971183],
+                  [88.46434494145979, 24.605324963723902],
+                  [88.46468826421369, 24.606105331692607],
+                  [88.46237083562482, 24.606163859094043]]]),
+            {
+              "class": 0,
+              "system:index": "8"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47573896535505, 24.609772995943512],
+                  [88.4745587933885, 24.608739037650487],
+                  [88.47539564260114, 24.60799770380267],
+                  [88.47629686483015, 24.60942184125521],
+                  [88.47655435689558, 24.610241200661154],
+                  [88.47608228810896, 24.610241200661154]]]),
+            {
+              "class": 0,
+              "system:index": "9"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47773452886213, 24.611041046332886],
+                  [88.47852846273054, 24.61033874309007],
+                  [88.48000904210676, 24.611119079783137],
+                  [88.47947260030378, 24.61205547738872]]]),
+            {
+              "class": 0,
+              "system:index": "10"
+            })]),
+    nonbuiltup = /* color: #98ff00 */ee.FeatureCollection(
+        [ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.46958045630413, 24.60859530732574],
+                  [88.46951608328777, 24.60814660526922],
+                  [88.46996669440227, 24.607853972626145],
+                  [88.47018127112347, 24.608341693317616]]]),
+            {
+              "class": 1,
+              "system:index": "0"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47226266531902, 24.609648775394067],
+                  [88.4726918187614, 24.60900499040651],
+                  [88.47320680289226, 24.60918056845897],
+                  [88.4734642949577, 24.61017550610126],
+                  [88.47355012564617, 24.610604692444962],
+                  [88.47273473410564, 24.610546167121168]]]),
+            {
+              "class": 1,
+              "system:index": "1"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47691898016888, 24.6077954460154],
+                  [88.47584609656292, 24.6055519052946],
+                  [88.47666148810345, 24.60484957123509],
+                  [88.47831372885662, 24.604595949633577],
+                  [88.47878036730958, 24.60504466442486],
+                  [88.481361949031, 24.605220248035558],
+                  [88.48286398607934, 24.60533730363914],
+                  [88.48997165133846, 24.60566896058786],
+                  [88.48954249789608, 24.610877810260607],
+                  [88.4820537703265, 24.61154109390148]]]),
+            {
+              "class": 1,
+              "system:index": "2"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.46128274371517, 24.610994860570447],
+                  [88.4602956907977, 24.607385758973436],
+                  [88.45864345004452, 24.605786015771635],
+                  [88.46233416964901, 24.60602012581059],
+                  [88.46334268023861, 24.60666392615893],
+                  [88.46465159823788, 24.606390799143036],
+                  [88.46542407443417, 24.60596159834193],
+                  [88.46641112735165, 24.605942089179607],
+                  [88.46619655063046, 24.607073615564758],
+                  [88.46711923053158, 24.606780980411767],
+                  [88.46739818026913, 24.606371290047655],
+                  [88.46838523318661, 24.606254235411495],
+                  [88.46999455859554, 24.606254235411495],
+                  [88.46930791308773, 24.607541830385724],
+                  [88.46922208239926, 24.60879039467439],
+                  [88.47053100039852, 24.60832218452647],
+                  [88.47188283374203, 24.60859530732574],
+                  [88.47224761416805, 24.609648775394067],
+                  [88.47280551364315, 24.610936335429216],
+                  [88.47080995013607, 24.611365519162373],
+                  [88.46928020604719, 24.613377323153045],
+                  [88.46670528539289, 24.61359191101569],
+                  [88.4651388753282, 24.61437222741249],
+                  [88.46385141500105, 24.614430750945964]]]),
+            {
+              "class": 1,
+              "system:index": "3"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.46483846791853, 24.60549584113503],
+                  [88.4633578885423, 24.604949581406895],
+                  [88.46318622716535, 24.60344735485707],
+                  [88.46181293614973, 24.603291278337114],
+                  [88.46138378270734, 24.602257266475053],
+                  [88.46372266896833, 24.60206216893914],
+                  [88.46636196263898, 24.60206216893914],
+                  [88.46698423513044, 24.60309618241336],
+                  [88.46799274572004, 24.602725499320222],
+                  [88.46934457906355, 24.60364245023326],
+                  [88.46891542562116, 24.604734978718316],
+                  [88.46837898381818, 24.60549584113503],
+                  [88.4669413197862, 24.605320257911092],
+                  [88.46629758962263, 24.605807988480272]]]),
+            {
+              "class": 1,
+              "system:index": "4"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.4753527272569, 24.604247243966274],
+                  [88.47453733571638, 24.603330297485353],
+                  [88.47453733571638, 24.601301285642588],
+                  [88.47477337010969, 24.598413788990538],
+                  [88.47367902883161, 24.596911483979813],
+                  [88.48638197072614, 24.59726267377912],
+                  [88.48747631200422, 24.600696477670663],
+                  [88.48910709508527, 24.602705989653334],
+                  [88.48814149983991, 24.604949581406895]]]),
+            {
+              "class": 1,
+              "system:index": "5"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.45702787526716, 24.604720175200303],
+                  [88.45769306310285, 24.596935700678348],
+                  [88.47567459233869, 24.59656499933733],
+                  [88.47554584630598, 24.603003340237535]]]),
+            {
+              "class": 1,
+              "system:index": "6"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.4733357060777, 24.60575416670903],
+                  [88.47318550237287, 24.605266435930037],
+                  [88.47376485952009, 24.605012815173534],
+                  [88.47406526692976, 24.605500546941222]]]),
+            {
+              "class": 1,
+              "system:index": "7"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47397943624128, 24.607841632959143],
+                  [88.47397943624128, 24.607431946068424],
+                  [88.47415109761823, 24.607178329701828],
+                  [88.47460170873273, 24.607353910318096],
+                  [88.47462316640485, 24.60758801742308]]]),
+            {
+              "class": 1,
+              "system:index": "8"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47563167699445, 24.606632077319833],
+                  [88.47533126958479, 24.606397968425973],
+                  [88.47567459233869, 24.605734657514365],
+                  [88.476811848961, 24.606671095426197],
+                  [88.47644706853498, 24.607470963925355],
+                  [88.47563167699445, 24.607627035231335],
+                  [88.47548147328962, 24.606612568262058],
+                  [88.47533126958479, 24.606378459331687]]]),
+            {
+              "class": 1,
+              "system:index": "9"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47571750768293, 24.608778055099748],
+                  [88.47565313466657, 24.60844640639327],
+                  [88.47603937276472, 24.6081927920833],
+                  [88.47627540715803, 24.608641493974154]]]),
+            {
+              "class": 1,
+              "system:index": "10"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[88.47221990712751, 24.60891461607624],
+                  [88.47219844945539, 24.60838788005969],
+                  [88.4734429944383, 24.60813426563107],
+                  [88.47380777486433, 24.60903166822317]]]),
+            {
+              "class": 1,
+              "system:index": "11"
+            })]);
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 //Visual Parameters for RGB composite of Landsat 7
 var visParamsRGB_L7 = {bands: ['B3', 'B2', 'B1']};
@@ -61,82 +365,55 @@ LRY = Lower right latitude
 
 */
 
-  // // Use these bands for prediction.
-  // var bands = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6_VCID_1', 'B6_VCID_2', 'B7', 'B8'];
+  // Use these bands for prediction.
+  var bands = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6_VCID_1', 'B6_VCID_2', 'B7', 'B8'];
 
-  // // Load a Landsat 8 image to be used for prediction.
-  // // image1991 = image1991.select(bands);
-  // image2001 = image2001.select(bands);
-  // image2011 = image2011.select(bands);
+  // Load a Landsat 8 image to be used for prediction.
+  // image1991 = image1991.select(bands);
+  image2001 = image2001.select(bands);
+  image2011 = image2011.select(bands);
 
-  // // Load training points. The numeric property 'class' stores known labels.
-  // var points = builtup.merge(nonbuiltup);
+  // Load training points. The numeric property 'class' stores known labels.
+  var points = builtup.merge(nonbuiltup);
 
-  // // Overlay the points on the imagery to get training.
-  // // var training1991 = image1991.sampleRegions({
-  // //   collection: points,
-  // //   properties: ['class'],
-  // //   scale: 30
-  // // });
-  // var training2001 = image2001.sampleRegions({
+  // Overlay the points on the imagery to get training.
+  // var training1991 = image1991.sampleRegions({
   //   collection: points,
   //   properties: ['class'],
   //   scale: 30
   // });
-  // var training2011 = image2011.sampleRegions({
-  //   collection: points,
-  //   properties: ['class'],
-  //   scale: 30
-  // });
+  var training2001 = image2001.sampleRegions({
+    collection: points,
+    properties: ['class'],
+    scale: 30
+  });
+  var training2011 = image2011.sampleRegions({
+    collection: points,
+    properties: ['class'],
+    scale: 30
+  });
 
-  // // Train a CART classifier with default parameters.
-  // // var trained1991 = ee.Classifier.cart().train(training1991, 'class', bands);
-  // var trained2001 = ee.Classifier.cart().train(training2001, 'class', bands);
-  // var trained2011 = ee.Classifier.cart().train(training2011, 'class', bands);
+  // Train a CART classifier with default parameters.
+  // var trained1991 = ee.Classifier.cart().train(training1991, 'class', bands);
+  var trained2001 = ee.Classifier.cart().train(training2001, 'class', bands);
+  var trained2011 = ee.Classifier.cart().train(training2011, 'class', bands);
 
-  // // Classify the image with the same bands used for training.
-  // // var classified1991 = image1991.select(bands).classify(trained1991).clip(roi);
-  // var classified2001 = image2001.select(bands).classify(trained2001).clip(roi);
-  // var classified2011 = image2011.select(bands).classify(trained2011).clip(roi);
+  // Classify the image with the same bands used for training.
+  // var classified1991 = image1991.select(bands).classify(trained1991).clip(roi);
+  var classified2001 = image2001.select(bands).classify(trained2001).clip(roi);
+  var classified2011 = image2011.select(bands).classify(trained2011).clip(roi);
 
-  // // Display the inputs and the results.
-  // // Map.addLayer(classified1991, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '1991 classification');
-  // Map.addLayer(classified2001, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '2001 classification');
-  // Map.addLayer(classified2011, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '2011 classification');
+  // Display the inputs and the results.
+  // Map.addLayer(classified1991, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '1991 classification');
+  Map.addLayer(classified2001, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '2001 classification');
+  Map.addLayer(classified2011, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '2011 classification');
 
 
 
-  // var area = ee.Image.pixelArea();
+  var area = ee.Image.pixelArea();
 
-  // // //1991 Built up area
-  // // var builtup_classfication = classified1991.select('classification').eq(0);
-  // // builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
-  // // var builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
-  // // var stats_builtup = builtup_classfication_area.reduceRegion({
-  // //     reducer: ee.Reducer.sum(), 
-  // //     geometry: roi, 
-  // //     scale: 30,
-  // //   });
-  // // var builtup1991_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
-  // // print('1991 Built up Area', builtup1991_areaKm);
-
-  // // //1991 Non Built up area
-  // // var nonbuiltup_classfication = classified1991.select('classification').eq(1);
-  // // nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
-  // // var nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
-  // // var stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
-  // //     reducer: ee.Reducer.sum(), 
-  // //     geometry: roi, 
-  // //     scale: 30,
-  // //   });
-  // // var nonbuiltup1991_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
-  // // print('1991 Non Built up Area', nonbuiltup1991_areaKm);
-
-  // // var areaKm = ee.Number(0);
-  // // print('1991 Total Area: ', areaKm.add(builtup1991_areaKm).add(nonbuiltup1991_areaKm));  
-
-  // //2001 Built up area
-  // var builtup_classfication = classified2001.select('classification').eq(0);
+  // //1991 Built up area
+  // var builtup_classfication = classified1991.select('classification').eq(0);
   // builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
   // var builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
   // var stats_builtup = builtup_classfication_area.reduceRegion({
@@ -144,11 +421,11 @@ LRY = Lower right latitude
   //     geometry: roi, 
   //     scale: 30,
   //   });
-  // var builtup2001_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
-  // print('2001 Built up Area', builtup2001_areaKm);
+  // var builtup1991_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
+  // print('1991 Built up Area', builtup1991_areaKm);
 
-  // //2001 Non Built up area
-  // var nonbuiltup_classfication = classified2001.select('classification').eq(1);
+  // //1991 Non Built up area
+  // var nonbuiltup_classfication = classified1991.select('classification').eq(1);
   // nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
   // var nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
   // var stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
@@ -156,60 +433,87 @@ LRY = Lower right latitude
   //     geometry: roi, 
   //     scale: 30,
   //   });
-  // var nonbuiltup2001_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
-  // print('2001 Non Built up Area', nonbuiltup2001_areaKm);
+  // var nonbuiltup1991_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
+  // print('1991 Non Built up Area', nonbuiltup1991_areaKm);
 
   // var areaKm = ee.Number(0);
-  // print('2001 Total Area: ', areaKm.add(builtup2001_areaKm).add(nonbuiltup2001_areaKm)); 
-  
-  // //2011 Built up area
-  // builtup_classfication = classified2011.select('classification').eq(0);
-  // builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
-  // builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
-  // stats_builtup = builtup_classfication_area.reduceRegion({
-  //     reducer: ee.Reducer.sum(), 
-  //     geometry: roi, 
-  //     scale: 30,
-  //   });
-  // var builtup2011_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
-  // print('2011 Built up Area', builtup2011_areaKm);
+  // print('1991 Total Area: ', areaKm.add(builtup1991_areaKm).add(nonbuiltup1991_areaKm));  
 
-  // //2011 Non Built up area
-  // nonbuiltup_classfication = classified2011.select('classification').eq(1);
-  // nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
-  // nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
-  // stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
-  //     reducer: ee.Reducer.sum(), 
-  //     geometry: roi, 
-  //     scale: 30,
-  //   });
-  // var nonbuiltup2011_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
-  // print('2011 Non Built up Area', nonbuiltup2011_areaKm);
+  //2001 Built up area
+  var builtup_classfication = classified2001.select('classification').eq(0);
+  builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
+  var builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
+  var stats_builtup = builtup_classfication_area.reduceRegion({
+      reducer: ee.Reducer.sum(), 
+      geometry: roi, 
+      scale: 30,
+    });
+  var builtup2001_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
+  print('2001 Built up Area', builtup2001_areaKm);
 
-  // areaKm = ee.Number(0);
-  // print('2011 Total Area: ', areaKm.add(builtup2011_areaKm).add(nonbuiltup2011_areaKm)); 
+  //2001 Non Built up area
+  var nonbuiltup_classfication = classified2001.select('classification').eq(1);
+  nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
+  var nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
+  var stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
+      reducer: ee.Reducer.sum(), 
+      geometry: roi, 
+      scale: 30,
+    });
+  var nonbuiltup2001_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
+  print('2001 Non Built up Area', nonbuiltup2001_areaKm);
+
+  var areaKm = ee.Number(0);
+  print('2001 Total Area: ', areaKm.add(builtup2001_areaKm).add(nonbuiltup2001_areaKm)); 
   
-  // // Create a task that you can launch from the Tasks tab.
-  // // Export.image.toDrive({
-  // //   image: classified1991,
-  // //   description: 'classified1991',
-  // //   scale: 30,
-  // //   region: roi
-  // // });
+  //2011 Built up area
+  builtup_classfication = classified2011.select('classification').eq(0);
+  builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
+  builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
+  stats_builtup = builtup_classfication_area.reduceRegion({
+      reducer: ee.Reducer.sum(), 
+      geometry: roi, 
+      scale: 30,
+    });
+  var builtup2011_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
+  print('2011 Built up Area', builtup2011_areaKm);
+
+  //2011 Non Built up area
+  nonbuiltup_classfication = classified2011.select('classification').eq(1);
+  nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
+  nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
+  stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
+      reducer: ee.Reducer.sum(), 
+      geometry: roi, 
+      scale: 30,
+    });
+  var nonbuiltup2011_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
+  print('2011 Non Built up Area', nonbuiltup2011_areaKm);
+
+  areaKm = ee.Number(0);
+  print('2011 Total Area: ', areaKm.add(builtup2011_areaKm).add(nonbuiltup2011_areaKm)); 
   
+  // Create a task that you can launch from the Tasks tab.
   // Export.image.toDrive({
-  //   image: classified2001,
-  //   description: 'classified2001',
+  //   image: classified1991,
+  //   description: 'classified1991',
   //   scale: 30,
   //   region: roi
   // });
+  
+  Export.image.toDrive({
+    image: classified2001,
+    description: 'classified2001',
+    scale: 30,
+    region: roi
+  });
 
-  // Export.image.toDrive({
-  //   image: classified2011,
-  //   description: 'classified2011',
-  //   scale: 30,
-  //   region: roi
-  // });
+  Export.image.toDrive({
+    image: classified2011,
+    description: 'classified2011',
+    scale: 30,
+    region: roi
+  });
 
   // Map.addLayer(roi);
   // COMMENT TILL HERE
