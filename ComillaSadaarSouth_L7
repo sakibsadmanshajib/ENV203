@@ -675,7 +675,7 @@ var images = ee.ImageCollection("LANDSAT/LE07/C01/T1_RT"),
               "system:index": "12"
             })]);
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
-//Visual Parameters for RGB composite of Landsat 5
+//Visual Parameters for RGB composite of Landsat 7
 var visParamsRGB_L7 = {bands: ['B3', 'B2', 'B1']};
 
 
