@@ -744,12 +744,12 @@ LRY = Lower right latitude
   var unclipped_2001 = ee.ImageCollection(unclipped
     .filterDate('2001-01-01','2002-01-01')
     .sort('CLOUD_COVER')
-    .first()
+    // .first()
   );
   var unclipped_2011 = ee.ImageCollection(unclipped
     .filterDate('2011-01-01','2012-01-01')
     .sort('CLOUD_COVER')
-    .first()
+    // .first()
   );
   
   // STEP 1 : START OF IMAGE COLLECTION
@@ -766,7 +766,7 @@ LRY = Lower right latitude
   var image2001 = ee.Image('LANDSAT/LE07/C01/T1_RT/LE07_136044_20010207').clip(roi); 
   Map.addLayer(image2001,visParamsRGB_L7,'2001');
  
-  var image2011 = ee.Image('LANDSAT/LE07/C01/T1_RT/LE07_136044_20110203').clip(roi); 
+  var image2011 = ee.Image('LANDSAT/LE07/C01/T1_RT/LE07_137044_20110210').clip(roi); 
   Map.addLayer(image2011,visParamsRGB_L7,'2011');
   
 /* 
