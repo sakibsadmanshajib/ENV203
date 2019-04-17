@@ -291,7 +291,7 @@ var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
 
 
 //Visual Parameters for False Color composite for Landsat 5
-// var visParamsFalse_L5 = {bands: ['B4', 'B3', 'B2'], max: 0.3};
+var visParamsFalse_L5 = {bands: ['B4', 'B3', 'B2'], max: 0.3};
 
 var calculate = function(name, areaname, ULY, ULX, LRY, LRX){
 /*
