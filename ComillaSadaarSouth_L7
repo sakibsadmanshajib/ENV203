@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var images = ee.ImageCollection("LANDSAT/LE07/C01/T1_RT"),
+var images = ee.ImageCollection("LANDSAT/LE07/C01/T1"),
     builtup = /* color: #ff0000 */ee.FeatureCollection(
         [ee.Feature(
             ee.Geometry.Polygon(
@@ -931,3 +931,5 @@ LRY = Lower right latitude
 
 //Input: Latitude and Longitude (2 decimal places) of upper left and lower right corner 
 calculate('Sakib', 'Comilla Sadaar Dakshin',  23.43, 91.12, 23.37, 91.26);
+
+var images = images2;
