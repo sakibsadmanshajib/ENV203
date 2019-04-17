@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var images = ee.ImageCollection("LANDSAT/LE07/C01/T1_RT"),
+var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
     builtup = /* color: #8b0000 */ee.FeatureCollection(
         [ee.Feature(
             ee.Geometry.Polygon(
