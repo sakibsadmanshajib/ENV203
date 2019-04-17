@@ -305,8 +305,6 @@ var images = ee.ImageCollection("LANDSAT/LT05/C01/T1_TOA"),
               "system:index": "11"
             })]);
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
-
-
 //Visual Parameters for RGB composite of Landsat 5
 var visParamsRGB_L5 = {bands: ['B3', 'B2', 'B1'], max: 0.3};
 
