@@ -744,12 +744,12 @@ LRY = Lower right latitude
   var unclipped_2001 = ee.ImageCollection(unclipped
     .filterDate('2001-01-01','2002-01-01')
     .sort('CLOUD_COVER')
-    .first()
+    // .first()
   );
   var unclipped_2011 = ee.ImageCollection(unclipped
     .filterDate('2011-01-01','2012-01-01')
     .sort('CLOUD_COVER')
-    .first()
+    // .first()
   );
   
   // STEP 1 : START OF IMAGE COLLECTION
@@ -911,19 +911,19 @@ LRY = Lower right latitude
   //   region: roi
   // });
   
-  Export.image.toDrive({
-    image: classified2001,
-    description: 'classified2001',
-    scale: 30,
-    region: roi
-  });
+  // Export.image.toDrive({
+  //   image: classified2001,
+  //   description: 'classified2001',
+  //   scale: 30,
+  //   region: roi
+  // });
 
-  Export.image.toDrive({
-    image: classified2011,
-    description: 'classified2011',
-    scale: 30,
-    region: roi
-  });
+  // Export.image.toDrive({
+  //   image: classified2011,
+  //   description: 'classified2011',
+  //   scale: 30,
+  //   region: roi
+  // });
 
   // Map.addLayer(roi);
   // COMMENT TILL HERE
