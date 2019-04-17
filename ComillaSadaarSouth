@@ -930,5 +930,5 @@ LRY = Lower right latitude
 };
 
 //Input: Latitude and Longitude (2 decimal places) of upper left and lower right corner 
-calculate('Sakib', 'Comilla Sadaar Dakshin',  23.43, 91.12, 23.37, 91.26);
+calculate('Sakib', 'Comilla Sadaar Dakshin',  23.43, 91.12, 23.29, 91.25);
 
