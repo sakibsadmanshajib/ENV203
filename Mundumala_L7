@@ -501,19 +501,19 @@ LRY = Lower right latitude
   //   region: roi
   // });
   
-  Export.image.toDrive({
-    image: classified2001,
-    description: 'classified2001',
-    scale: 30,
-    region: roi
-  });
+  // Export.image.toDrive({
+  //   image: classified2001,
+  //   description: 'classified2001',
+  //   scale: 30,
+  //   region: roi
+  // });
 
-  Export.image.toDrive({
-    image: classified2011,
-    description: 'classified2011',
-    scale: 30,
-    region: roi
-  });
+  // Export.image.toDrive({
+  //   image: classified2011,
+  //   description: 'classified2011',
+  //   scale: 30,
+  //   region: roi
+  // });
 
   // Map.addLayer(roi);
   // COMMENT TILL HERE
