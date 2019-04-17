@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var images = ee.ImageCollection("LANDSAT/LE07/C01/T1"),
+var images = ee.ImageCollection("LANDSAT/LE07/C01/T1_TOA"),
     builtup = /* color: #ff0000 */ee.FeatureCollection(
         [ee.Feature(
             ee.Geometry.Polygon(
@@ -716,7 +716,6 @@ var images = ee.ImageCollection("LANDSAT/LE07/C01/T1"),
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 //Visual Parameters for RGB composite of Landsat 7
 var visParamsRGB_L7 = {bands: ['B3', 'B2', 'B1']};
-
 
 //Visual Parameters for False Color composite for Landsat 5
 // var visParamsFalse_L5 = {bands: ['B4', 'B3', 'B2'], max: 0.3};
