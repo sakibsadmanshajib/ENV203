@@ -308,11 +308,7 @@ LRY = Lower right latitude
   Map.setCenter(ULX,ULY,11);
   var unclipped = images.filterBounds(roi);
   
-  // var unclipped_1991 = ee.ImageCollection(unclipped
-  //   .filterDate('1991-01-01','1992-01-01')
-  //   .sort('CLOUD_COVER')
-  //   .first()
-  // );
+
   var unclipped_2001 = ee.ImageCollection(unclipped
     .filterDate('2001-01-01','2002-01-01')
     .sort('CLOUD_COVER')
@@ -325,15 +321,12 @@ LRY = Lower right latitude
   );
   
   // STEP 1 : START OF IMAGE COLLECTION
-  // print('1991',unclipped_1991);
   print('2001',unclipped_2001);
   print('2011',unclipped_2011);
   
  //COMMENT OUT AT THE TIME OF IMAGE COLLECTION
   Map.addLayer(roi);
   
-  // var image1991 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_137043_19910126').clip(roi); 
-  // Map.addLayer(image1991,visParamsRGB_L5,'1991');
  
   var image2001 = ee.Image('LANDSAT/LT05/C01/T1_TOA/LT05_136044_20010319').clip(roi); 
   Map.addLayer(image2001,visParamsRGB_L5,'2001');
@@ -351,7 +344,6 @@ LRY = Lower right latitude
   var bands = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7'];
 
   // Load a Landsat 8 image to be used for prediction.
-  // image1991 = image1991.select(bands);
   image2001 = image2001.select(bands);
   image2011 = image2011.select(bands);
 
@@ -359,11 +351,6 @@ LRY = Lower right latitude
   var points = builtup.merge(nonbuiltup);
 
   // Overlay the points on the imagery to get training.
-  // var training1991 = image1991.sampleRegions({
-  //   collection: points,
-  //   properties: ['class'],
-  //   scale: 30
-  // });
   var training2001 = image2001.sampleRegions({
     collection: points,
     properties: ['class'],
@@ -376,50 +363,20 @@ LRY = Lower right latitude
   });
 
   // Train a CART classifier with default parameters.
-  // var trained1991 = ee.Classifier.cart().train(training1991, 'class', bands);
   var trained2001 = ee.Classifier.cart().train(training2001, 'class', bands);
   var trained2011 = ee.Classifier.cart().train(training2011, 'class', bands);
 
   // Classify the image with the same bands used for training.
-  // var classified1991 = image1991.select(bands).classify(trained1991).clip(roi);
   var classified2001 = image2001.select(bands).classify(trained2001).clip(roi);
   var classified2011 = image2011.select(bands).classify(trained2011).clip(roi);
 
   // Display the inputs and the results.
-  // Map.addLayer(classified1991, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '1991 classification');
   Map.addLayer(classified2001, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '2001 classification');
   Map.addLayer(classified2011, {min: 0, max: 1, palette: ['FF0000','00FF00']}, '2011 classification');
 
 
 
-  var area = ee.Image.pixelArea();
-
-  // //1991 Built up area
-  // var builtup_classfication = classified1991.select('classification').eq(0);
-  // builtup_classfication = builtup_classfication.updateMask(builtup_classfication);
-  // var builtup_classfication_area = builtup_classfication.multiply(area).rename('builtup_classfication_area');
-  // var stats_builtup = builtup_classfication_area.reduceRegion({
-  //     reducer: ee.Reducer.sum(), 
-  //     geometry: roi, 
-  //     scale: 30,
-  //   });
-  // var builtup1991_areaKm = ee.Number(stats_builtup.get('builtup_classfication_area')).divide(1000000);
-  // print('1991 Built up Area', builtup1991_areaKm);
-
-  // //1991 Non Built up area
-  // var nonbuiltup_classfication = classified1991.select('classification').eq(1);
-  // nonbuiltup_classfication = nonbuiltup_classfication.updateMask(nonbuiltup_classfication);
-  // var nonbuiltup_classfication_area = nonbuiltup_classfication.multiply(area).rename('nonbuiltup_classfication_area');
-  // var stats_nonbuiltup = nonbuiltup_classfication_area.reduceRegion({
-  //     reducer: ee.Reducer.sum(), 
-  //     geometry: roi, 
-  //     scale: 30,
-  //   });
-  // var nonbuiltup1991_areaKm = ee.Number(stats_nonbuiltup.get('nonbuiltup_classfication_area')).divide(1000000);
-  // print('1991 Non Built up Area', nonbuiltup1991_areaKm);
-
-  // var areaKm = ee.Number(0);
-  // print('1991 Total Area: ', areaKm.add(builtup1991_areaKm).add(nonbuiltup1991_areaKm));  
+  var area = ee.Image.pixelArea(); 
 
   //2001 Built up area
   var builtup_classfication = classified2001.select('classification').eq(0);
@@ -475,14 +432,7 @@ LRY = Lower right latitude
   areaKm = ee.Number(0);
   print('2011 Total Area: ', areaKm.add(builtup2011_areaKm).add(nonbuiltup2011_areaKm)); 
   
-  // Create a task that you can launch from the Tasks tab.
-  // Export.image.toDrive({
-  //   image: classified1991,
-  //   description: 'classified1991',
-  //   scale: 30,
-  //   region: roi
-  // });
-  
+  // Create a task that you can launch from the Tasks tab.  
   // Export.image.toDrive({
   //   image: classified2001,
   //   description: 'classified2001',
